@@ -1,0 +1,264 @@
+/* ====== Fonts ====== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+
+/* ====== Design tokens ====== */
+:root {
+  --laranja-claro: #FF862A;
+  --laranja-escuro: #CB6D43;
+  --cinza-100: #FAF4F4;
+  --cinza-200: #F1EDEF;
+  --preto: #111;
+  --branco: #fff;
+}
+
+/* ====== Base ====== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--preto);
+  background: var(--branco);
+  transition: font-size 0.2s ease-in-out;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+/* Link de pular para conteúdo */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--laranja-claro);
+  color: #000;
+  padding: .5rem 1rem;
+  z-index: 10000;
+  border-radius: .25rem;
+}
+.skip-link:focus { top: 10px; }
+
+/* ====== Header / Nav ====== */
+header { background-color: #fff; }
+.nav-link {
+  color: var(--laranja-escuro);
+  font-weight: 600;
+}
+.nav-link:hover, .nav-link:focus {
+  color: #a4542f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ====== Acessibilidade: botão e opções ====== */
+.menu-acessibilidade {
+  position: fixed;
+  z-index: 1000;
+}
+
+/* Posições que podem ser trocadas no container */
+.acess-top-right    { top: 1rem; right: 1rem; left: auto; bottom: auto; }
+.acess-top-left     { top: 1rem; left: 1rem; right: auto; bottom: auto; }
+.acess-bottom-right { bottom: 1rem; right: 1rem; top: auto; left: auto; }
+.acess-bottom-left  { bottom: 1rem; left: 1rem; top: auto; right: auto; }
+.acess-center-right { top: 50%; right: 1rem; transform: translateY(-50%); }
+.acess-center-left  { top: 50%; left: 1rem; transform: translateY(-50%); }
+
+/* Estilo do menu */
+#opcoes-acessibilidade {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: .5rem;
+  display: none;
+  flex-direction: column;
+  gap: .5rem;
+  background: #fff;
+  padding: .5rem;
+  border-radius: .5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12);
+}
+#opcoes-acessibilidade.is-open {
+  display: flex;
+}
+#opcoes-acessibilidade button {
+  margin: 0;
+}
+
+/* Se o botão estiver no rodapé, abre para cima */
+.acess-bottom-right #opcoes-acessibilidade,
+.acess-bottom-left #opcoes-acessibilidade {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+/* ====== Seções ====== */
+section { padding-bottom: 5rem; }
+
+/* ====== Hero (Início) ====== */
+.inicio-fundo {
+  background-image: url('img/4965007.jpg');
+  background-size: cover;
+  background-position: right;
+  border-radius: 80px;
+  width: 100%;
+  min-height: 606px;
+  padding: 40px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.esquerda-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: min(560px, 90%);
+}
+.display-4 {
+  text-shadow: -5px 5px var(--laranja-claro);
+  color: #fff;
+}
+.botao-inicio {
+  background-color: var(--laranja-claro);
+  border-radius: 30px;
+  border: none;
+  width: 14em;
+  height: 3em;
+  align-content: center;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.botao-inicio:hover, .botao-inicio:focus { filter: brightness(.95); }
+.img-inicio {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(45rem, 55%);
+  height: auto;
+  transform: translateY(8%);
+}
+
+/* ====== Seção Tropicália ====== */
+#tropicalia {
+  position: relative;
+  padding-top: 5rem;
+  margin: 3rem 0;
+  background:
+    url('img/flor.png') top right no-repeat,
+    url('img/flor-esquerda.png') bottom left no-repeat;
+  background-size: 180px 180px;
+}
+#tropicalia .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+h2 {
+  font-family: 'Lemon', serif;
+  font-size: 2.5em;
+  color: var(--laranja-claro);
+}
+
+/* ====== Galeria ====== */
+#galeria { background-color: var(--cinza-100); }
+.fundo-galeria {
+  background: url('img/flor-bottom-direita.png') bottom right no-repeat;
+  background-size: 180px 180px;
+}
+
+/* ====== Contato ====== */
+#contato {
+  background-image: url('img/4965007.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 0;
+}
+.formulario {
+  background-color: #ffffffF5;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  font-weight: 600;
+}
+.formulario button {
+  background-color: var(--laranja-escuro);
+  border: none;
+  font-weight: 700;
+}
+.formulario button:hover, .formulario button:focus { filter: brightness(.95); }
+.form-control {
+  background-color: var(--cinza-200);
+  border: none;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+}
+
+/* ====== Footer ====== */
+footer { background: #222; color: #fff; }
+
+/* ====== Acessibilidade extra ====== */
+:focus-visible {
+  outline: 3px solid var(--laranja-claro);
+  outline-offset: 2px;
+  border-radius: .25rem;
+}
+
+/* ====== Responsividade ====== */
+@media (max-width: 991.98px) {
+  .inicio-fundo {
+    border-radius: 48px;
+    min-height: 520px;
+  }
+  .img-inicio {
+    position: static;
+    width: 75%;
+    margin: 2rem auto 0;
+    transform: none;
+  }
+  .esquerda-conteudo { max-width: 100%; }
+  #tropicalia .container { flex-direction: column; gap: 2rem; }
+  h2 { font-size: 2em; }
+}
+@media (max-width: 767.98px) {
+  .inicio-fundo { padding: 28px; border-radius: 32px; }
+  .display-4 { font-size: 2rem; text-shadow: -3px 3px var(--laranja-claro); }
+  .botao-inicio { width: 12em; height: 2.75em; }
+  h2 { font-size: 1.8em; }
+  .menu-acessibilidade { top: 1rem; right: 12px; }
+}
+@media (max-width: 575.98px) {
+  .nav .nav-item { text-align: center; }
+  .img-inicio { width: 90%; }
+  h2 { font-size: 1.6em; }
+}
+
+/* ====== Menu Principal ====== */
+.nav .nav-link {
+  position: relative;
+  color: var(--laranja-escuro);
+  font-weight: 600;
+  padding: .5rem 1rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+/* Estado hover/focus com cor de fundo */
+.nav .nav-link:hover,
+.nav .nav-link:focus {
+  background-color: var(--laranja-claro);
+  color: #fff !important;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
+
+/* Estado ativo (quando clicado ou se quiser marcar a seção) */
+.nav .nav-link.active {
+  background-color: var(--laranja-escuro);
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25) inset;
+}
